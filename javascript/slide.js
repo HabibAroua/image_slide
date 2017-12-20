@@ -1,5 +1,6 @@
 var index = 1;
 showImage(1);
+
 function showImage(n)
 {
 	var i;
@@ -17,4 +18,10 @@ function showImage(n)
 		x[i].style.display = "none";
 	}
 	x[index-1].style.display = "block";
+}
+
+function plusIndex(n)
+{
+	index=index+1;
+	showImage(index);
 }
