@@ -1,45 +1,59 @@
-//Image screen
-let sliderImage = document.querySelectorAll('.slide'),
-arrowLeft=document.querySelectorAll('#arrow-left'),
-arrowRight=document.querySelectorAll('#arrow-right'),
+let sliderImages = document.querySelectorAll(".slide"),
+arrowLeft = document.querySelector("#arrow-left"),
+arrowRight = document.querySelector("#arrow-right"),
 current = 0;
-
-//clear all images
-function reset()
+// Clear all images
+function reset() 
 {
-	for(let i=0; i<sliderImage ; i++ )
-	{
-		sliderImage[i].style.display = 'none' ;
-	}
-}
-//init slider
-function startSlide()
-{
-	reset();
-	sliderImage[0].style.display= 'block' ;
+    for (let i = 0; i < sliderImages.length; i++) 
+    {
+        sliderImages[i].style.display = "none";
+    }
 }
 
-//show prev
-function slideLeft()
+// Init slider
+function startSlide() 
 {
-	reset();
-	sliderImage[current - 1].style.display='block';
-	current--;
+    reset();
+    sliderImages[0].style.display = "block";
 }
-//show next
 
-//Left arrow click
-arrowLeft.addEventListener  ('click',
-                                function()
+// Show prev
+function slideLeft() 
+{
+    reset();
+    sliderImages[current - 1].style.display = "block";
+    current--;
+}
+
+// Show next
+function slideRight() 
+{
+    reset();
+    sliderImages[current + 1].style.display = "block";
+    current++;
+}
+
+// Left arrow click
+arrowLeft.addEventListener("click",
+                            function() 
+							{
+                                if (current === 0) 
 								{
-								    if (current == 0)
-                                    {
-										current= sliderImage.length;
-                                    }
-                                    slideLeft();									
-								}
-                            );                
+                                    current = sliderImages.length;
+                                }
+                                slideLeft();
+                            });
 
+// Right arrow click
+arrowRight.addEventListener("click", 
+                            function() 
+							{
+                                if (current === sliderImages.length - 1) 
+								{
+                                    current = -1;
+                                }
+                                slideRight();
+                            });
 
 startSlide();
-
