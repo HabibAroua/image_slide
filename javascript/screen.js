@@ -12,11 +12,14 @@ function reset()
 		sliderImage[i].style.display = 'none' ;
 	}
 }
-
+//init slider
 function startSlide()
 {
 	reset();
+	sliderImage[0].style.display= 'block' ;
 }
+
+//show prev
 
 startSlide();
 
