@@ -20,6 +20,26 @@ function startSlide()
 }
 
 //show prev
+function slideLeft()
+{
+	reset();
+	sliderImage[current - 1].style.display='block';
+	current--;
+}
+//show next
+
+//Left arrow click
+arrowLeft.addEventListener  ('click',
+                                function()
+								{
+								    if (current == 0)
+                                    {
+										current= sliderImage.length;
+                                    }
+                                    slideLeft();									
+								}
+                            );                
+
 
 startSlide();
 
